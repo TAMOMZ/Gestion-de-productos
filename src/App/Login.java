@@ -14,7 +14,10 @@ import java.sql.ResultSet;
 
 public class Login extends javax.swing.JFrame {
 
-  
+   // Objeto de conexión a la base de datos
+    ConexionSQL cc = new ConexionSQL();
+    Connection con = (Connection) cc.conexion();
+    
     public Login() {
         initComponents();
     }

@@ -48,7 +48,7 @@ public class UsersPanel extends javax.swing.JPanel {
             
             pst.execute();
             
-            JOptionPane.showMessageDialog(null,"Producto agregado exitosamente");
+            JOptionPane.showMessageDialog(null,"Usuario agregado exitosamente");
                     
         } catch (Exception e){
             JOptionPane.showMessageDialog(null,"El producto no se ha agragado" + e.getMessage());
@@ -238,6 +238,11 @@ public class UsersPanel extends javax.swing.JPanel {
                 "Nombre", "Apellido	", "Teléfono", "Correo electrónico	", "Usuario"
             }
         ));
+        tbusers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbusersMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbusers);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 56, 854, 216));
@@ -440,6 +445,17 @@ public class UsersPanel extends javax.swing.JPanel {
     private void tfsearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfsearchKeyReleased
         BuscarDatos(tfsearch.getText());
     }//GEN-LAST:event_tfsearchKeyReleased
+
+    private void tbusersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbusersMouseClicked
+        int filaSeleccionada = tbusers.rowAtPoint(evt.getPoint());
+        
+        tfnombre.setText(tbusers.getValueAt(filaSeleccionada,0).toString());
+        tfapellido.setText(tbusers.getValueAt(filaSeleccionada,1).toString());
+        tfnumero.setText(tbusers.getValueAt(filaSeleccionada,2).toString());
+        tfcorreo.setText(tbusers.getValueAt(filaSeleccionada,3).toString());
+        tfusuario.setText(tbusers.getValueAt(filaSeleccionada,4).toString());
+        tfpass.setText(tbusers.getValueAt(filaSeleccionada,5).toString());
+    }//GEN-LAST:event_tbusersMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

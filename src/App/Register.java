@@ -11,6 +11,9 @@ import javax.swing.JOptionPane;
 
 public class Register extends javax.swing.JFrame {
     
+    ConexionSQL cc = new ConexionSQL();
+    Connection con = (Connection) cc.conexion();
+    
     public Register() {
         initComponents();
     }
@@ -82,7 +85,9 @@ public class Register extends javax.swing.JFrame {
             int rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {
                 JOptionPane.showMessageDialog(this, "Usuario registrado correctamente.", "Registro exitoso", JOptionPane.INFORMATION_MESSAGE);
-                limpiarCampos();
+                this.dispose();
+                Login login = new Login();
+                login.setVisible(true);
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(this, "Error al registrar el usuario: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
